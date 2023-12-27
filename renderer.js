@@ -89,7 +89,7 @@ async function startVoiceDetection() {
         const amplitude = calculateAmplitude(inputData);
   
         // Check if the sound is loud based on your threshold
-        const alert = alertAmplitude ? alertAmplitude : 0.6;
+        const alert = alertAmplitude ? alertAmplitude : 0.4;
         const isLoud = amplitude > alert; // Adjust the threshold as needed
 
         const curAmplitudeRef = document.getElementById('curAmplitude');
@@ -180,7 +180,7 @@ function getSavedInfo() {
     alertAmplitude = Number(alert);
     amplitudeRef.value = alertAmplitude;
   } else {
-    localStorage.setItem('amplitude', 0.6);
+    localStorage.setItem('amplitude', 0.4);
   }
 }
 
