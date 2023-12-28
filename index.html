@@ -1,72 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voice Control</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Control</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="bg-black h-screen flex items-center justify-center flex-col container">
-  <div class="flex items-center flex-col w-full">
-    <div class="flex flex-row justify-center w-full">
-      <div class="flex flex-col items-center px-5 text-white w-full">
-        <span class="text-lg font-semibold">Alert Amplitude</span>
-        <input id="amplitude" onchange="changeAlertAmplitude()" type="range" class="w-full bg-transparent bg-yellow-700 h-4 overflow-hidden cursor-pointer" min="0" max="1" step="0.1" />
-        <div class="flex justify-between w-full">
-          <div class="w-1/9 text-center">0</div>
-          <div class="w-1/9 text-center">0.1</div>
-          <div class="w-1/9 text-center">0.2</div>
-          <div class="w-1/9 text-center">0.3</div>
-          <div class="w-1/9 text-center">0.4</div>
-          <div class="w-1/9 text-center">0.5</div>
-          <div class="w-1/9 text-center">0.6</div>
-          <div class="w-1/9 text-center">0.7</div>
-          <div class="w-1/9 text-center">0.8</div>
-          <div class="w-1/9 text-center">0.9</div>
-          <div class="w-1/9 text-center">1</div>
+
+    <div class="flex items-center flex-col w-full">
+
+        <div class="flex flex-row justify-center w-full mb-8">
+            <div class="flex flex-col items-center px-5 text-white w-full">
+                <span class="text-lg font-semibold">Alert Amplitude</span>
+                <input id="amplitude" onchange="changeAlertAmplitude()" type="range"
+                    class="w-full bg-transparent bg-yellow-700 h-4 overflow-hidden cursor-pointer" min="0" max="1"
+                    step="0.1" />
+                <div class="flex justify-between w-full">
+                    <!-- Adjusted styling for better spacing -->
+                    <div class="w-1/11 text-center">0</div>
+                    <div class="w-1/11 text-center">0.1</div>
+                    <div class="w-1/11 text-center">0.2</div>
+                    <div class="w-1/11 text-center">0.3</div>
+                    <div class="w-1/11 text-center">0.4</div>
+                    <div class="w-1/11 text-center">0.5</div>
+                    <div class="w-1/11 text-center">0.6</div>
+                    <div class="w-1/11 text-center">0.7</div>
+                    <div class="w-1/11 text-center">0.8</div>
+                    <div class="w-1/11 text-center">0.9</div>
+                    <div class="w-1/11 text-center">1</div>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="flex flex-row justify-center w-full mb-4">
+            <div class="flex flex-col items-center px-5 text-white w-full">
+                <span class="text-lg font-semibold">Current Amplitude</span>
+                <input id="curAmplitude" disabled type="range" class="w-full bg-transparent h-4 overflow-hidden cursor-pointer" min="0"
+                    max="1" step="0.01" />
+                <div class="flex justify-between w-full">
+                    <!-- Adjusted styling for better spacing -->
+                    <div class="w-1/11 text-center">0</div>
+                    <div class="w-1/11 text-center">0.1</div>
+                    <div class="w-1/11 text-center">0.2</div>
+                    <div class="w-1/11 text-center">0.3</div>
+                    <div class="w-1/11 text-center">0.4</div>
+                    <div class="w-1/11 text-center">0.5</div>
+                    <div class="w-1/11 text-center">0.6</div>
+                    <div class="w-1/11 text-center">0.7</div>
+                    <div class="w-1/11 text-center">0.8</div>
+                    <div class="w-1/11 text-center">0.9</div>
+                    <div class="w-1/11 text-center">1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-5 my-3 p-5 w-full">
+            <div class="flex items-center justify-between flex-col w-full border border-gray-400 p-5 rounded-lg">
+                <span class="text-white text-2xl font-bold mb-4">Notification</span>
+                <div class="w-full mb-4">
+                    <input id="title" type="text"
+                        class="p-2 w-full ring-yellow-800 rounded-md border border-yellow-700"
+                        placeholder="Title*" />
+                    <span id="titleError" class="hidden text-red-600 text-xs">Provide title for custom notification.</span>
+                </div>
+                <div class="w-full mb-4">
+                    <input id="message" type="text"
+                        class="p-2 w-full ring-yellow-800 rounded-md border border-yellow-700"
+                        placeholder="Message*" />
+                    <span id="messageError" class="hidden text-red-600 text-xs">Provide message for custom notification.</span>
+                </div>
+                <div class="flex flex-row items-center justify-between w-full">
+                    <button
+                        class="bg-yellow-600 w-1/2 font-semibold px-3 py-2 rounded-lg text-white hover:bg-yellow-700"
+                        onclick="sendNotification(true)">Notify</button>
+                    <div class="flex justify-between gap-3">
+                        <button
+                            class="border border-yellow-600 w-1/2 font-semibold px-3 py-2 rounded-lg text-white hover:border-yellow-700"
+                            onclick="clearTexts()">Clear</button>
+                        <button
+                            class="bg-yellow-600 w-1/2 font-semibold px-3 py-2 rounded-lg text-white hover:bg-yellow-700"
+                            onclick="saveNotificationSettings()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="flex flex-row justify-center w-full mt-4">
-      <div class="flex flex-col items-center px-5 text-white w-full">
-        <span class="text-lg font-semibold">Current Amplitude</span>
-        <input id="curAmplitude" disabled type="range" class="w-full bg-transparent h-4 overflow-hidden cursor-pointer" min="0" max="1" step="0.01" />
-        <div class="flex justify-between w-full">
-          <div class="w-1/9 text-center">0</div>
-          <div class="w-1/9 text-center">0.1</div>
-          <div class="w-1/9 text-center">0.2</div>
-          <div class="w-1/9 text-center">0.3</div>
-          <div class="w-1/9 text-center">0.4</div>
-          <div class="w-1/9 text-center">0.5</div>
-          <div class="w-1/9 text-center">0.6</div>
-          <div class="w-1/9 text-center">0.7</div>
-          <div class="w-1/9 text-center">0.8</div>
-          <div class="w-1/9 text-center">0.9</div>
-          <div class="w-1/9 text-center">1</div>
-        </div>
-      </div>
-    </div>
-    <div class="mx-5 my-5 p-5 w-full">
-      <div class="flex items-center justify-between flex-col w-full border border-gray-400 p-5 rounded rounded-lg">
-        <span class="text-white text-2xl font-bold">Notification</span>
-        <div class="w-full">
-          <input id="title" type="text" class="p-2 mt-3 w-full ring-yellow-800 rounded rounded-md border border-yellow-700" placeholder="Title*"/>
-          <span id="titleError" class="hidden text-red-600">Provide title for custom notification.</span>
-        </div>
-        <div class="w-full">
-          <input id="message" type="text" class="p-2 mt-4 w-full ring-yellow-800 rounded rounded-md border border-yellow-700" placeholder="Message*"/>
-          <span id="messageError" class="hidden text-red-600">Provide message for custom notification.</span>
-        </div>
-        <div class="flex flex-row items-center justify-between mt-4 w-full">
-          <button class="bg-yellow-600 w-84 font-semibold px-3 p-2 rounded-lg text-white hover:bg-yellow-700" onclick="sendNotification(true)">Notify</button>
-          <div class="flex justify-between gap-3">
-            <button class="border border-yellow-600 w-84 font-semibold px-3 p-2 rounded-lg text-white hover:border-yellow-700" onclick="clearTexts()">Clear</button>
-            <button class="bg-yellow-600 w-84 font-semibold px-3 p-2 rounded-lg text-white hover:bg-yellow-700" onclick="saveNotificationSettings()">Save</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="renderer.js"></script>
+
+    <script src="renderer.js"></script>
 </body>
+
 </html>
