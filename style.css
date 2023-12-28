@@ -17,7 +17,7 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  background: #fff;
+  background: #292b1a;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -40,7 +40,7 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  background: #fff;
+  background: #292b1a;
   border-radius: 50%;
   cursor: not-allowed;
 }

@@ -8,8 +8,8 @@ let quitFromTray = false;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 550,
-    height: 620,
+    width: 480,
+    height: 550,
     center: true,
     icon: path.join(__dirname, 'images/volume.png'),
     webPreferences: {
@@ -128,7 +128,7 @@ function updateContextMenu(devices) {
   
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: 'choose device',
+      label: 'Choose Device',
       submenu: subMenus,
     },
     {

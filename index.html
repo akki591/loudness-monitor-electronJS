@@ -9,67 +9,64 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-black h-screen flex items-center justify-center flex-col container">
-
+<body class="bg-gray-900 h-screen flex items-center justify-center flex-col container">
     <div class="flex items-center flex-col w-full">
-
-        <div class="flex flex-row justify-center w-full mb-8">
+        <div class="flex flex-row justify-center w-full mb-5">
             <div class="flex flex-col items-center px-5 text-white w-full">
-                <span class="text-lg font-semibold">Alert Amplitude</span>
+                <span class="text-lg font-bold text-sm">Alert Amplitude</span>
                 <input id="amplitude" onchange="changeAlertAmplitude()" type="range"
                     class="w-full bg-transparent bg-yellow-700 h-4 overflow-hidden cursor-pointer" min="0" max="1"
                     step="0.1" />
                 <div class="flex justify-between w-full">
                     <!-- Adjusted styling for better spacing -->
-                    <div class="w-1/11 text-center">0</div>
-                    <div class="w-1/11 text-center">0.1</div>
-                    <div class="w-1/11 text-center">0.2</div>
-                    <div class="w-1/11 text-center">0.3</div>
-                    <div class="w-1/11 text-center">0.4</div>
-                    <div class="w-1/11 text-center">0.5</div>
-                    <div class="w-1/11 text-center">0.6</div>
-                    <div class="w-1/11 text-center">0.7</div>
-                    <div class="w-1/11 text-center">0.8</div>
-                    <div class="w-1/11 text-center">0.9</div>
-                    <div class="w-1/11 text-center">1</div>
+                    <div class="w-1/11 text-center text-xs">0</div>
+                    <div class="w-1/11 text-center text-xs">0.1</div>
+                    <div class="w-1/11 text-center text-xs">0.2</div>
+                    <div class="w-1/11 text-center text-xs">0.3</div>
+                    <div class="w-1/11 text-center text-xs">0.4</div>
+                    <div class="w-1/11 text-center text-xs">0.5</div>
+                    <div class="w-1/11 text-center text-xs">0.6</div>
+                    <div class="w-1/11 text-center text-xs">0.7</div>
+                    <div class="w-1/11 text-center text-xs">0.8</div>
+                    <div class="w-1/11 text-center text-xs">0.9</div>
+                    <div class="w-1/11 text-center text-xs">1</div>
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-row justify-center w-full mb-4">
+        <div class="flex flex-row justify-center w-full mb-2">
             <div class="flex flex-col items-center px-5 text-white w-full">
-                <span class="text-lg font-semibold">Current Amplitude</span>
+                <span class="text-lg font-bold text-sm">Current Amplitude</span>
                 <input id="curAmplitude" disabled type="range" class="w-full bg-transparent h-4 overflow-hidden cursor-pointer" min="0"
                     max="1" step="0.01" />
                 <div class="flex justify-between w-full">
-                    <!-- Adjusted styling for better spacing -->
-                    <div class="w-1/11 text-center">0</div>
-                    <div class="w-1/11 text-center">0.1</div>
-                    <div class="w-1/11 text-center">0.2</div>
-                    <div class="w-1/11 text-center">0.3</div>
-                    <div class="w-1/11 text-center">0.4</div>
-                    <div class="w-1/11 text-center">0.5</div>
-                    <div class="w-1/11 text-center">0.6</div>
-                    <div class="w-1/11 text-center">0.7</div>
-                    <div class="w-1/11 text-center">0.8</div>
-                    <div class="w-1/11 text-center">0.9</div>
-                    <div class="w-1/11 text-center">1</div>
+                    <div class="w-1/11 text-center text-xs">0</div>
+                    <div class="w-1/11 text-center text-xs">0.1</div>
+                    <div class="w-1/11 text-center text-xs">0.2</div>
+                    <div class="w-1/11 text-center text-xs">0.3</div>
+                    <div class="w-1/11 text-center text-xs">0.4</div>
+                    <div class="w-1/11 text-center text-xs">0.5</div>
+                    <div class="w-1/11 text-center text-xs">0.6</div>
+                    <div class="w-1/11 text-center text-xs">0.7</div>
+                    <div class="w-1/11 text-center text-xs">0.8</div>
+                    <div class="w-1/11 text-center text-xs">0.9</div>
+                    <div class="w-1/11 text-center text-xs">1</div>
                 </div>
             </div>
         </div>
 
-        <div class="mx-5 my-3 p-5 w-full">
-            <div class="flex items-center justify-between flex-col w-full border border-gray-400 p-5 rounded-lg">
+        <div class="mx-5 p-5 w-full">
+            <div class="flex items-center justify-between flex-col w-full border border-gray-700 p-5 rounded-lg bg-gray-800">
                 <span class="text-white text-2xl font-bold mb-4">Notification</span>
                 <div class="w-full mb-4">
                     <input id="title" type="text"
-                        class="p-2 w-full ring-yellow-800 rounded-md border border-yellow-700"
+                        class="p-2 w-full bg-gray-900 focus:outline-none border border-gray-700 rounded-md bg-black text-white"
                         placeholder="Title*" />
                     <span id="titleError" class="hidden text-red-600 text-xs">Provide title for custom notification.</span>
                 </div>
                 <div class="w-full mb-4">
                     <input id="message" type="text"
-                        class="p-2 w-full ring-yellow-800 rounded-md border border-yellow-700"
+                        class="p-2 w-full bg-gray-900 focus:outline-none border border-gray-700 rounded-md bg-black text-white"
                         placeholder="Message*" />
                     <span id="messageError" class="hidden text-red-600 text-xs">Provide message for custom notification.</span>
                 </div>
@@ -88,9 +85,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <script src="renderer.js"></script>
 </body>
 
