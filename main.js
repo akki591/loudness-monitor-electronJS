@@ -11,7 +11,7 @@ function createWindow() {
     width: 480,
     height: 550,
     center: true,
-    icon: path.join(__dirname, 'images/volume.png'),
+    icon: path.join(__dirname, 'images/voice-control.png'),
     webPreferences: {
       preload: path.join(__dirname, 'renderer.js'),
       nodeIntegration: true,
@@ -48,7 +48,7 @@ function createWindow() {
 
 function createTrayIcon() {
   // Create a system tray icon
-  tray = new Tray(path.join(__dirname, 'images/volume.png'));
+  tray = new Tray(path.join(__dirname, 'images/voice-control.png'));
 
   // Create context menu for the tray icon
   const contextMenu = Menu.buildFromTemplate([
@@ -86,7 +86,7 @@ function showNotification(title, message, isTesting) {
   const notification = new Notification({
     title: title || 'Loud Sound Detected',
     body: message || 'Your voice is too loud!',
-    icon: path.join(__dirname, 'images/volume.png'),
+    icon: path.join(__dirname, 'images/voice-control.png'),
   });
 
   if (isTesting || sendNotification) {

@@ -17,13 +17,13 @@
   },
   "build": {
     "appId": "com.sound.voice-control",
-    "productName": "Voice Control",
+    "productName": "voice-control",
     "directories": {
       "output": "dist"
     },
     "win": {
       "target": "msi",
-      "icon": "images/volume.png"
+      "icon": "images/voice-control.png"
     }
   }
 }
